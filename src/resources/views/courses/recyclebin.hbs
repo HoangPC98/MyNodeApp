@@ -1,0 +1,90 @@
+<div class="mt-4">
+    <div class="d-flex flex-row justify-content-between">
+        <h3>Khóa học đã bị xóa</h3>
+        <a href="/courses/management" class="">Quay lại</a>
+    </div>
+   
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                {{!-- <th scope="col">ID</th> --}}
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">VideoID</th>
+                <th scope="col"></th>
+
+            </tr>
+        </thead>
+
+        <tbody class="table-field">
+            {{#each data}}
+            <tr>
+                <th scope="row">{{@index}}</th>
+                <td>{{this.name}}</td>
+                <td>{{this.description}}</td>
+                <td>{{this.videoID}}</td>
+                {{!-- <td>{{this.createdAt}}</td> --}}
+                <td class="" style="display:flex; justify-content: flex-end; align-items: center;">
+                    <a href="#" class="btn btn-light restore-btn" id="{{this._id}}">Khôi phục</a>
+                    <a class="px-2 delete-btn-0" style="text-decoration: none; cursor:pointer;" id="{{this._id}}" data-bs-toggle="modal" data-bs-target="#force-delete-modal" >Xóa Vĩnh viễn</a>
+                </td>
+            </tr>
+            {{else}}
+            <tr>
+                <td class="text-center" colspan="5">
+                    <h4>Thùng rác trống</h4>
+                    <a href="/courses/management" style="font-size: 20px;">Quay lại</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade " id="force-delete-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Xóa khóa học:</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Hành động này không thể khôi phục. Bạn chắc chắn muốn xóa vĩnh viễn khóa học này
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-bs-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-danger" id="delete-force-btn" data-bs-dismiss="modal">Xóa vĩnh viễn</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="delete-force-form" method="POST" ></form>
+
+<form id="restore-form" method="POST" ></form>
+
+
+<script>
+    var id
+    var retoreForm = document.getElementById('restore-form')
+    var deleteForceForm = document.getElementById('delete-force-form')
+    document.querySelector('.table-field').onclick = function (e) {
+        console.log(e.target)
+        if(e.target.closest('.restore-btn')){
+            id = e.target.id
+            retoreForm.action = '/courses/' + id + '/restore?_method=PATCH'
+            alert('Đã khôi phục Khóa học: ' + id )
+            retoreForm.submit()
+        }
+        if(e.target.closest('.delete-btn-0')){
+            id = e.target.id
+            document.querySelector('#delete-force-btn').onclick = function() {
+                deleteForceForm.action = '/courses/' + id + '/delete-force?_method=DELETE'
+                alert('Đã xóa vĩnh viễn khóa học: ' + id )
+                deleteForceForm.submit()
+            }
+        }
+
+    }
+</script>

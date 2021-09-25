@@ -1,0 +1,40 @@
+<div class="mt-4">
+    {{> header_admin}}
+</div>
+
+<div class="mt-4">
+    <h2>Update Product Here</h2>
+    <form method="POST" action="/admin/products/{{data._id}}/updated/?_method=PUT"> 
+        <div class="mb-3">
+            <label for="name" class="form-label">Product Name Edit</label>
+            <input type="text" class="form-control"  value="{{data.name}}" name="name">
+        </div>
+        <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+            <input type="text" class="form-control" name="category" value="{{data.cate}}">
+        </div>
+        <div class="mb-3">
+            <label for="img" class="form-label">Course Avatar Image</label>
+            <input type="text" class="form-control" name="img" value="{{data.img}}">
+        </div>
+        <div class="mb-3">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="number" class="form-control" name="quantity" value="{{data.quantity}}">
+        </div>
+        <div class="mb-3">
+            <label for="price_origin" class="form-label">Price Origin</label>
+            <input type="number" class="form-control" name="price_origin" value="{{data.price_origin }}">
+        </div>
+        <div class="mb-3">
+            <label for="price_saleoff" class="form-label">Discount</label>
+            <input type="number" class="form-control" name="price_saleoff" value="{{data.price_saleoff}}">
+        </div>
+
+
+        {{!-- <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">I Agree</label>
+        </div> --}}
+        <button type="submit" class="btn btn-primary">Update Now</button>
+    </form>
+</div>

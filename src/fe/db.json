@@ -1,0 +1,36 @@
+{
+  "product-list": [
+    {
+      "id": 1,
+      "key": [
+        "ip12"
+      ],
+      "name": "iPhone 12 Pro Max",
+      "priceo": 29990000,
+      "prices": 1600000,
+      "sl": 295,
+      "cate": "iPhone",
+      "img": "https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-600x600.jpg"
+    },
+    {
+      "key": "ip12",
+      "name": "12 ",
+      "priceo": "24490000",
+      "prices": "2400000",
+      "cate": "iPhone",
+      "img": "https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-xanh-duong-600x600.jpg",
+      "sl": "272",
+      "id": 2
+    },
+    {
+      "key": "ip12",
+      "name": "12 Mini",
+      "priceo": "21690000",
+      "prices": "1800000",
+      "cate": "iPhone",
+      "img": "https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-xanh-duong-600x600.jpg",
+      "sl": "272",
+      "id": 3
+    }
+  ]
+}

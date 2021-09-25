@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {{>header_admin}}
+    <div class="mt-4">
+        <div class="d-flex flex-row justify-content-between">
+            <h3>Quản lý Sản Phẩm</h3>
+            <a href="/admin/products/recyclebin" class="">Thùng rác</a>
+
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    {{!-- <th scope="col">ID</th> --}}
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price Origin</th>
+                    <th scope="col">Discount</th>
+                    <th scope="col"></th>
+
+                </tr>
+            </thead>
+
+            <tbody class="table-field">
+                {{#each data}}
+                <tr>
+                    <th scope="row">{{@index}}</th>
+                    <td>{{this.name}}</td>
+                    <td>{{this.cate}}</td>
+                    <td>{{this.img}}</td>
+                    <td>{{this.quantity}}</td>
+                    <td>{{this.price_origin}}</td>
+                    <td>{{this.price_saleoff}}</td>
+
+                    {{!-- <td>{{this.createdAt}}</td> --}}
+                    <td class="" style="display:flex; justify-content: flex-end; align-items: center;">
+                        <a href="/admin/products/{{this._id}}/update" class="btn btn-light">Sửa</a>
+                        <a class="px-2 delete-btn" style="text-decoration: none; cursor:pointer;" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal1" id="{{this._id}}">Xóa</a>
+                    </td>
+                </tr>
+                {{else}}
+                <tr>
+                    <td class="text-center" colspan="5">
+                        <h4>Chưa có sản phẩm nào</h4>
+                        <a href="/admin/products/create" style="font-size: 20px;">Thêm sản phẩm mới</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel1">Bạn có chắc chắn muốn xóa khóa học</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Bạn có chắc muốn xóa khóa học
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-danger" id="delete-product-now" data-bs-dismiss="modal">Xóa bỏ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form id="delete-hidden-form" method="POST"></form>
+
+
+    <script>
+        var id
+        var deleteForm = document.getElementById('delete-hidden-form')
+        document.querySelector('.table-field').onclick = function (e) {
+            id = e.target.id
+        }
+        document.getElementById('delete-product-now').onclick = function () {
+            deleteForm.action = '/admin/products/' + id + '?_method=DELETE'
+            deleteForm.submit();
+        }
+    </script>
+</body>
+
+</html>

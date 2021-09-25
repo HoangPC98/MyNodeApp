@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../fe/StyleCSS/header.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="ex">
+        <div class="header grid-col">
+            <nav class="header__navbar h-o-m-t">
+                <div class="header__navbar-list">
+                    <!-- header-qr -->
+                    <div class="header__navbar-item qr">
+                        Tải ứng dụng OK
+                        <div class="header__qr">
+                            <img src="./img/qrcodeapp.png" alt="QR Code" id="header__qr-img">
+                            <div class="qr-app">
+                                <a href="https://play.google.com/store">
+                                    <img src="./img/ggplay.jpg" alt="GG Play" class=" ggplay">
+                                </a>
+                                <a href="https://www.apple.com/app-store/">
+                                    <img src="./img/appstore.jpg" alt="App Store" class="appstore">
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Kết nối -->
+                    <div class="header__navbar-item">
+                        Kết nối
+                        <a href="https://www.facebook.com/" class="header__navbar-item-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" class="header__navbar-item-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <!-- Khoảng trống đẩy -->
+                    <div class="header__navbar-item space"></div>
+                    <!-- Thống báo -->
+                    <div class="header__navbar-item navbarnotice">
+                        <a href="./notification.html" class="header__navbar-item-link ">
+                            <i class="far fa-bell "></i>
+                            Thông báo
+                        </a>
+                        <div class="header__notice">
+                            <header class="header__notice-header">
+                                <h3>Thông báo mới nhận</h3>
+                            </header>
+
+                            <div class="header__notice-item">
+                                <a href="" class="header__notice-link">
+                                    <img src="./img/tb2.jpg" alt="" class="header__notice-img">
+                                    <div class="header__notice-info">
+                                        <span class="header_notice-name title2">Ten SP</span>
+                                        <span class="header_notice-descript">Day la mo ta san pham: 123xyz</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="header__notice-item">
+                                <a href="" class="header__notice-link">
+                                    <img src="./img/tb2.jpg" alt="" class="header__notice-img">
+                                    <div class="header__notice-info">
+                                        <span class="header_notice-name title2">Ten SP</span>
+                                        <span class="header_notice-descript">Day la mo ta san pham: 123xyz</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="header__notice-item">
+                                <a href="" class="header__notice-link">
+                                    <img src="./img/tb2.jpg" alt="" class="header__notice-img">
+                                    <div class="header__notice-info">
+                                        <span class="header_notice-name title2">Ten SP</span>
+                                        <span class="header_notice-descript">Day la mo ta san pham: 123xyz</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <footer class="header__notice-footer">
+                                <a href="./notification.html" class="header__notice-footer show-all">Xem tất cả</a>
+                            </footer>
+                        </div>
+                    </div>
+                    <!-- Trợ giúp -->
+                    <div class="header__navbar-item">
+                        <a href="" class="header__navbar-item-link">
+                            <i class="far fa-question-circle"></i>
+                            Trợ giúp
+                        </a>
+                    </div>
+                    <!-- Đăng kí -->
+                    <div class="header__navbar-item reg-btn" style="font-weight: 500;">Đăng kí</div>
+                    <!-- Đăng nhập -->
+                    <div class="header__navbar-item login-btn" style="font-weight: 500;">Đăng nhập</div>
+                    <!-- Tài khoản -->
+                    <div class="header__navbar-item user-account">
+                        <a>
+                            <div class="user-img">
+                                <img src="./img/user-img.jpg" alt="" id="user-img">
+                                <div class="user-name">User ADBCH</div>
+                            </div>
+                        </a>
+                        <ul class="user-account-ul">
+                            <li class="user-account-li my-acc">Tài khoản của tôi</li>
+                            <li class="useraccount-li my-cart">Đơn hàng</li>
+                            <li class="user-account-li logout-btn">Đăng xuất</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="header__navbar-item-close-navbar l-0">
+                    <i class="fas fa-times"></i>
+                </div>
+            </nav>
+            <div class="header__search-panel">
+                <!-- navbar hider   -->
+                <div class="header__navbar-hider">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <!-- LogoHomePage -->
+                <div class="header__logo">
+                    <a href="" class="header__home-link">
+                        <i class="fab fa-react"></i>
+                        ReactMobile
+                    </a>
+
+                </div>
+                <!-- SearchBar -->
+                <div class="header__searchbar">
+                    <input type="text" class="header__searchbar-inp" placeholder="Bạn đang tìm gì...">
+                    <div class="select-item">
+                        <span class="select-label h-o-m">Trong Shop</span>
+                        <i class="fas fa-chevron-down"></i>
+                        <ul class="select-ul">
+                            <li> <span class="item-li">Trong Shop</span> </li>
+                            <li> <span class="item-li">Ngoài Shop</span> </li>
+                        </ul>
+                    </div>
+                    <button class="header__searchbar-goto" type="search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <!-- Cart -->
+                <div class="header__cart">
+                    <div class="cart-notify"></div>
+                    <a href="./cart.html" class="header__cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <div class="cart-list">
+                        <img src="./img/no-cart.png" alt="" class="empty-cart-img">
+                        <div class="cart-list-header">Sản phẩm mới thêm vào giỏ</div>
+                        <ul class="cart-list-ul">
+
+                        </ul>
+                        <div class="header__cart viewcart">
+                            <button onclick=" window.location.href='./cart.html' " class="viewcart-btn">Xem giỏ
+                                hàng</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

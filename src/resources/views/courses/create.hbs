@@ -1,0 +1,29 @@
+
+<div class="mt-4">
+    <h2>CREATE NEW COURSE</h2>
+    <form method="POST" action="/courses/store"> 
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Course Name</label>
+            <input type="text" class="form-control" name="name">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Description</label>
+            <input type="text" class="form-control" name="description">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Course Avatar Image</label>
+            <input type="text" class="form-control" name="img">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Video ID</label>
+            <input type="text" class="form-control" name="videoID">
+        </div>
+      
+        {{!-- <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">I Agree</label>
+        </div> --}}
+        <button type="submit" class="btn btn-primary">Create Now</button>
+    </form>
+</div>
+

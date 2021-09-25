@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {{> header_client}}
+    <div class="container">
+        <!-- Slide Bar -->
+        <div class="slide-container grid wide-1390">
+            <div class="slide-images">
+                <div class="nextto-img h-o-m-t">
+                    <img src="./img/nextt-img.png" alt="" id="next-img" onclick="SlideNextFuntion()">
+                </div>
+                <div class="nextto-img h-o-m-t">
+                    <img src="./img/next-img.png" alt="" id="prev-img" onclick="SlidePrevFuntion()">
+                </div>
+                <div class="img-list-item">
+                    <img src="./img/slide-img/img-1.png" alt="" class="slide-img">
+                    <img src="./img/slide-img/img-2.png" alt="" class="slide-img">
+                    <img src="./img/slide-img/img-3.png" alt="" class="slide-img">
+                    <img src="./img/slide-img/img-4.png" alt="" class="slide-img">
+                    <img src="./img/slide-img/img-5.png" alt="" class="slide-img">
+                    <img src="./img/slide-img/img-6.png" alt="" class="slide-img">
+                </div>
+
+            </div>
+
+        </div>
+        <div class="main-container row sm-gutter">
+            <div class="category__hider">
+                <i class="fas fa-list-ul"></i>
+            </div>
+            <div class="category l-2 m-0 c-0">
+                <nav class="category__auth">
+                    <div class="category__heading">
+                        <i class="fas fa-list-ul"></i>
+                        <span class="category__heading-text">
+                            Danh mục sản phẩm
+                        </span>
+                    </div>
+                    <ul class="category__list">
+                        <li class="category__item" style="color: var(--primary-color); font-size: 109%;"
+                            onclick="Filter_Category('ALL')">
+                            <div class="highlight-icon">
+                                <i class="fas fa-caret-right"></i>
+                            </div>
+                            Tất cả sản phẩm
+                        </li>
+                        <li class="category__item" onclick="Filter_Category('iPhone')">
+                            <div class="highlight-icon"></div> iPhone
+                        </li>
+                        <li class="category__item" onclick="Filter_Category('SAMSUNG')">
+                            <div class="highlight-icon"></div> SAMSUNG
+                        </li>
+                        <li class="category__item" onclick="Filter_Category('OPPO')">
+                            <div class="highlight-icon"></div> OPPO
+                        </li>
+                        <li class="category__item" onclick="Filter_Category('Vsmart')">
+                            <div class="highlight-icon"></div> Vsmart
+                        </li>
+                        <li class="category__item" onclick="Filter_Category('Xiaomi')">
+                            <div class="highlight-icon"></div> Xiaomi
+                        </li>
+                        <li class="category__item" onclick="Filter_Category('Realme')">
+                            <div class="highlight-icon"></div> Realme
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="product col l-10 m-12 c-12">
+                <div class="product__filter">
+                    <div class="product__filter-f">
+                        <span class="label h-o-m">Sắp xếp theo:</span>
+                        <button class="btn btn-f filter-all btn-primary" onclick="Filter_Category('ALL')">Tất
+                            cả</button>
+                        <button class="btn btn-f filter-sale-off " onclick="Filter_f('sale-off')">Đang giảm giá</button>
+                        <button class="btn btn-f filter-lastest" onclick="Filter_f('lastest')">Mới nhất</button>
+                        <button class="btn btn-f filter-best-selling" onclick="Filter_f('best-selling')">Bán
+                            chạy</button>
+                        <button class="btn btn-f filter-az" onclick="Filter_f('a-z')">A-Z</button>
+
+                        <div class="filter-btn-select-price btn-f" style="cursor: pointer;">
+                            <span class="sort-label">Theo giá :</span>
+                            <!-- <i class="fas fa-chevron-down"></i> -->
+                            <ul class="select-filter-price-ul hidden">
+                                <li onclick="SortThis('increase')"> <span class="item-li">Từ thấp đến cao</span> </li>
+                                <li onclick="SortThis('decrease')"> <span class="item-li">Từ cao đến thấp</span> </li>
+                            </ul>
+                            <span class="sort-selected"></span>
+                        </div>
+                    </div>
+                    <div class="product__filter-page h-o-m">
+                        <div class="page__control">
+                            <span class="label">Trang</span>
+                            <span class="page__curent" style="color: var(--primary-color)">1</span>/<span
+                                class="page-sum">1</span>
+                        </div>
+                        <button class="page__btn-prev"><i class="fas fa-angle-left"></i></button>
+                        <button class="page__btn-next"><i class="fas fa-angle-right"></i></button>
+                    </div>
+                </div>
+                <nav class="category-mobile l-0 m-display c-display">
+                    <ul class="category-mobile-ul">
+                        <li class="category-mobile-li btn-primary" onclick="Filter_Category('iPhone')">iPhone</li>
+                        <li class="category-mobile-li" onclick="Filter_Category('SAMSUNG')">SAMSUNG</li>
+                        <li class="category-mobile-li" onclick="Filter_Category('OPPO')">OPPO</li>
+                        <li class="category-mobile-li" onclick="Filter_Category('Vsmart')">Vsmart</li>
+                        <li class="category-mobile-li" onclick="Filter_Category('Xiaomi')">Xiaomi</li>
+                        <li class="category-mobile-li" onclick="Filter_Category('Realme')">Realme</li>
+                    </ul>
+                </nav>
+                <div class="search-result">
+                    Kết quả tìm kiếm:
+                    <span class="search-result-inp"></span>
+                </div>
+                <div class="product__item ">
+                    <ul class="product__item-ul row">
+                        <!-- inner HTML khi render Website -->
+                        {{#each product}}
+                        <li class="product__item-li col l-2-4 m-3 c-6">
+                            <div class="product__item-li-auth">
+                                <a href="#" class="product__item-li-link">
+                                    <img src="{{this.img}}" alt="" class="product__item-img">
+                                    <div class="product__item-name title2">{{this.name}}</div>
+                                    <div class="product__item-price">
+                                        <span class="product__item-price--origin">{{this.price_origin}} </span>
+                                        <span class="product__item-price--saleoff">{{this.price_origin}} đ</span>
+                                    </div>
+                                    <div class="product__item-addition">
+                                        <i href="" class="far fa-heart"></i>
+                                        <div class="star">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span class="sold">Đã bán {{this.quantity}}</span>
+                                    </div>
+                                    <div class="product__item-address">Ha Noi</div>
+                                </a>
+                                <div class="product__item-like">Yêu thích</div>
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="product__page-control-bottom flex-row">
+                    <button class="page__btn-prev"><i class="fas fa-angle-left"></i></button>
+                    <ul class="page-list flex-row">
+                        <!-- <li class="page-item item-li btn-primary">1</li> -->
+                    </ul>
+                    <button class="page__btn-next"><i class="fas fa-angle-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{> footer_client}}
+    {{!-- <script type="text/javascript" src="/script/data.js"></script> --}}
+    <script type="text/javascript" src="/script/home_client_body.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+{{> header_admin}}
+
+<div class="mt-4">
+    <h4>Add New Product</h4>
+    {{!-- submit form với Method: [POST] vào route: [action], route được match trong routes --}}
+    <form method="POST" action="/admin/products/create/saved">  
+        <div class="mb-3">
+            <label for="name" class="form-label">Product Name</label>
+            <input type="text" class="form-control" name="name">
+        </div>
+        <div class="mb-3">
+            <label for="cate" class="form-label">Category</label>
+            <input type="text" class="form-control" name="cate">
+        </div>
+        <div class="mb-3">
+            <label for="img" class="form-label">Course Avatar Image</label>
+            <input type="text" class="form-control" name="img">
+        </div>
+        <div class="mb-3">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="number" class="form-control" name="quantity">
+        </div>
+        <div class="mb-3">
+            <label for="price_origin" class="form-label">Price Origin</label>
+            <input type="number" class="form-control" name="price_origin">
+        </div>
+         <div class="mb-3">
+            <label for="price_saleoff" class="form-label">Discount</label>
+            <input type="number" class="form-control" name="price_saleoff">
+        </div>
+        
+      
+        {{!-- <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">I Agree</label>
+        </div> --}}
+        <button type="submit" class="btn btn-primary">Create Now</button>
+    </form>
+</div>

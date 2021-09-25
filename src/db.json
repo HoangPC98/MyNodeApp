@@ -1,0 +1,22 @@
+{
+    "accounts":[
+        {
+            "id": "id",
+            "user": "username",
+            "pass" : "password"
+        }
+    ],
+
+    "product": [
+        {
+            "key": "",
+            "name": "",
+            "price_origin" : "",
+            "price_saleoff": "",
+            "cate": "",
+            "img": "",
+            "sl": "",
+            "id": "id"
+        }
+    ]
+}
