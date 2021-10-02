@@ -5,6 +5,7 @@ const Product = require('../models/Product')
 class ProductController {
     // [GET]
     Create(req, res, next){
+        console.log('req.body', req.body.name)
         res.render('server/create.hbs')
     }
 
@@ -44,6 +45,8 @@ class ProductController {
     }
     Saved(req, res, next){
         console.log('Saved')
+        console.log('req.body', req.body.name)
+
         const formData = req.body  // req.body là phần Form Data lấy đc khi submit Form
         const storeData = new Product(formData) // tạo ra 1 instance Schema Prodcut mới và đổ data vào Schema
         storeData.save() // lưu lại vào DB

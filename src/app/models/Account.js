@@ -9,8 +9,9 @@ const Schema = mongoose.Schema;
 // const ObjectId = Schema.ObjectId;
 
 const AccountSchema = new Schema({
-    user: {type: String, maxLength: 50 },
-    pass: {type: String, maxLength: 50}
+    username: {type: String, maxLength: 50 },
+    email: {type: String, maxLength:50},
+    password: {type: String, maxLength: 50}
 }, {timestamps: true})
 
 

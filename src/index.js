@@ -6,17 +6,8 @@ const path = require('path') // import path (lib của NodeJS)
 const port = 3232
 var methodOverride = require('method-override')
 const bodyParser = require('body-parser')
-
-
-function Middleware(req,res ,next){
-    if (['a','b'].includes(req.query.md)){
-      next()
-    }
-    else{
-      res.status(400).json({fail: 'Fialure'})
-    }
-}
-
+const cookieParser = require('cookie-parser')
+const jwt = require('jsonwebtoken')
 
 // Connect to Database
 const db = require('./config/db') // import db from
@@ -28,6 +19,8 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(methodOverride('_method')) // ghi đe phương thức http GET, POST , PUT ,PATCH, DELETE...
+app.use(cookieParser())
+
 
 // app.use(morgan('combined'))
 
