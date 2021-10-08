@@ -30,7 +30,7 @@ app.engine('hbs', exphandlebars({extname: '.hbs'})); // sử dụng views engine
 app.set('view engine', 'hbs'); // cài đặt view engines là "handlebars" vừa đặt tên ở bên trên
 app.set('views',path.join(__dirname, 'resources/views')) // config path cho đường dẫn directory: path.join(parent path của thư mục hiện tại , nối thêm children path kể từ __dirname) 
 
-app.use(bodyParser.urlencoded({extended: false})) 
+app.use(bodyParser.urlencoded({extended: false}))  // get data từ Form Body HTML , extended: true - cho phép body parser các object lồng nhau.....
 app.use(express.static(path.join(__dirname, 'public')));
 
 const cors = require('cors')

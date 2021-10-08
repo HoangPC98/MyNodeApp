@@ -10,7 +10,8 @@ class SiteController {
         res.send('Show New Slug')
     }
     // [GET] /
-    async homeFunc(req,res,next){
+    homeFunc(req,res,next){
+        console.log('render log form')
         res.render('LogForm')
     }
 
@@ -20,6 +21,7 @@ class SiteController {
     }
 
     GetLogin(req,res){
+        console.log('Get locgin')
         res.render('LogForm')
     }
 
@@ -29,11 +31,12 @@ class SiteController {
             .then( (result) => {
                 if(result){
                     var token = jwt.sign({data: result._id}, 'secret')
-                    res.json({
-                        message: "Đăng nhập thành công",
-                        token:token})
-                    res.redirect('/home')
-                    next()
+                    console.log('TOKENNNNNNNNNNNNN',token)
+                    res.cookie('token', token)
+                    .redirect('/home')
+        
+ 
+                    // res.end()
                 }
                 else if(req.body.user == 'admin', req.body.password=='admin123'){
                     res.redirect('/admin/products')
@@ -42,9 +45,9 @@ class SiteController {
                     res.render('LogForm',{error:'Đăng nhập thất bại, Tên đăng nhập hoặc mật khẩu không đúng'})
                 }
             })
-            .catch((err) => {
-                res.json({'err SERVER ': err})
-            });
+            // .catch((err) => {
+            //     res.json({'err SERVER ': err})
+            // });
 
     }
 
@@ -74,6 +77,7 @@ class SiteController {
                 const storeData = new Account(formData) // tạo ra 1 instance Schema Prodcut mới và đổ data vào Schema
                 storeData.save() // lưu lại vào Collection Account 
                 console.log('registed',req.body,storeData)
+                res.send('<h2> Đăng kí thành công <a href="/login">   Đăng nhập ngay</a></h2>')
             }
         })
         .catch(err => {

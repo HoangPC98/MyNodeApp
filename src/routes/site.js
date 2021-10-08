@@ -12,6 +12,7 @@ router.get('/home', (req,res, next) => {
         console.log('cokkie parser ', req.cookies)
         var token = req.cookies.token
         var kq = jwt.verify(token, 'secret')
+        console.log('token',kq)
         if(kq){
             console.log('kq',kq)
             next()
@@ -27,9 +28,9 @@ router.get('/home', (req,res, next) => {
 
 }) // app.get/post (path, functionHandler) // path ở đây chỉ có "/" đc hiểu là luôn ping đến trang con sau dấu "/" :[slug], nếu ko có thì ping đến trang hiện tại
 router.get('/login' , siteController.GetLogin)
-router.post('/login' , siteController.SubmitLogin, siteController.NextWhenLoginSubmitted)
+router.post('/login' , siteController.SubmitLogin)
 router.get('/signup', siteController.GetSignUp)
 router.post('/signup', siteController.SubmitSignUp) //
-router.use('/', siteController.homeFunc) // app.get/post (path, functionHandler) // path ở đây chỉ có "/" đc hiểu là luôn ping đến trang con sau dấu "/" :[slug], nếu ko có thì ping đến trang hiện tại
+router.get('/', siteController.homeFunc) // app.get/post (path, functionHandler) // path ở đây chỉ có "/" đc hiểu là luôn ping đến trang con sau dấu "/" :[slug], nếu ko có thì ping đến trang hiện tại
 
 module.exports = router
