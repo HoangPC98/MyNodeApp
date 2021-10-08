@@ -10,7 +10,7 @@ var AccController = require('../app/controllers/AccController')
 router.get('/home', (req,res, next) => {
     try {
         console.log('cokkie parser ', req.cookies)
-        var token = req.cookies.token
+        var token = req.cookies.tokenjwt
         var kq = jwt.verify(token, 'secret')
         console.log('token',kq)
         if(kq){

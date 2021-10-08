@@ -28,15 +28,13 @@ class SiteController {
     SubmitLogin(req, res, next){
 
         Account.findOne({email: req.body.username, password: req.body.password})
-            .then( (result) => {
-                if(result){
-                    var token = jwt.sign({data: result._id}, 'secret')
+            .then( (data) => {
+                if(data){
+                    console.log('database',data)
+                    var token = jwt.sign({data: data._id}, 'secret')
                     console.log('TOKENNNNNNNNNNNNN',token)
-                    res.cookie('token', token)
-                    .redirect('/home')
-        
- 
-                    // res.end()
+                    res.cookie('tokenjwt', token)
+                    .render('client/home_body',{dataDocument:data.username})
                 }
                 else if(req.body.user == 'admin', req.body.password=='admin123'){
                     res.redirect('/admin/products')

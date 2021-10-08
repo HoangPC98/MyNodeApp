@@ -47,7 +47,7 @@ let CartRemoveIcon = $('.cart-remove-icon')
 
 //main arrgument
 let NumberProductCart = 7;
-let isLoggedIn = false;
+let isLoggedIn = true;
 $('.filter-btn-select-price').onclick = function (){
     console.log($('.select-filter-price-ul').classList)
     if($('.select-filter-price-ul').classList.contains('hidden')){
