@@ -93,6 +93,31 @@ function SlidePrevFuntion(){
     // console.log(translateX)
 }
 
+$('.user-account-li.logout-btn').onclick = async ()=> {
+    let options = {
+        method: 'POST',
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        },
+        body: JSON.stringify({ fetchdata: 'logoutrequest'})
+    }
+    console.log(options)
+    await fetch('/logout',options)
+    .then(response => {
+        if(!response.ok){
+            console.log('!!!! res.ok')
+
+            console.error(response)
+        } else {
+            console.log('res.ok')
+            return response.json();
+        }
+    })
+    .then(result => {
+        console.log(result);
+    })
+}
+
 let npp = 15;
 var curentPage =1;
 let pageQuantity = Math.ceil(product_Filter.length/npp);

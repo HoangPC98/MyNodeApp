@@ -32,5 +32,5 @@ router.post('/login' , siteController.SubmitLogin)
 router.get('/signup', siteController.GetSignUp)
 router.post('/signup', siteController.SubmitSignUp) //
 router.get('/', siteController.homeFunc) // app.get/post (path, functionHandler) // path ở đây chỉ có "/" đc hiểu là luôn ping đến trang con sau dấu "/" :[slug], nếu ko có thì ping đến trang hiện tại
-
+router.post('/logout', siteController.Logout)
 module.exports = router

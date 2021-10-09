@@ -82,6 +82,14 @@ class SiteController {
             res.json('Lỗi server')
         })
     }
+
+    async Logout(req,res) {
+        console.log('Logging outt')
+        const request = await req.body
+        if(request.fetchdata == 'logoutrequest'){
+            res.clearCookie('tokenjwt')
+        }
+    }
 }
 
 module.exports = new SiteController 
